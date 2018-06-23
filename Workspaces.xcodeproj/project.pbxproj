@@ -17,6 +17,12 @@
 		2D8F43E220DEC9DC004B3342 /* CoreDataPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D8F43D220DEC9DC004B3342 /* CoreDataPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D8F43E520DEC9DC004B3342 /* CoreDataPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8F43D020DEC9DC004B3342 /* CoreDataPlatform.framework */; };
 		2D8F43E620DEC9DC004B3342 /* CoreDataPlatform.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8F43D020DEC9DC004B3342 /* CoreDataPlatform.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2D8F43F120DECCB8004B3342 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F43F020DECCB8004B3342 /* Workspace.swift */; };
+		2D8F43F520DECE26004B3342 /* WorkspaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F43F420DECE26004B3342 /* WorkspaceUseCase.swift */; };
+		2D8F43F720DED16D004B3342 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F43F620DED16D004B3342 /* UseCaseProvider.swift */; };
+		2D8F43FA20DED1E8004B3342 /* WSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F43F920DED1E8004B3342 /* WSApplication.swift */; };
+		2D8F43FC20DED225004B3342 /* WSURLApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F43FB20DED225004B3342 /* WSURLApplication.swift */; };
+		2D8F43FE20DED2E4004B3342 /* WSInstalledApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F43FD20DED2E4004B3342 /* WSInstalledApplication.swift */; };
 		607609A220DC425400B4DF8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607609A120DC425400B4DF8D /* AppDelegate.swift */; };
 		607609A420DC425400B4DF8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607609A320DC425400B4DF8D /* ViewController.swift */; };
 		607609A620DC425500B4DF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607609A520DC425500B4DF8D /* Assets.xcassets */; };
@@ -112,6 +118,12 @@
 		2D8F43D820DEC9DC004B3342 /* CoreDataPlatformTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataPlatformTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8F43DF20DEC9DC004B3342 /* CoreDataPlatformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPlatformTests.swift; sourceTree = "<group>"; };
 		2D8F43E120DEC9DC004B3342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D8F43F020DECCB8004B3342 /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
+		2D8F43F420DECE26004B3342 /* WorkspaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceUseCase.swift; sourceTree = "<group>"; };
+		2D8F43F620DED16D004B3342 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		2D8F43F920DED1E8004B3342 /* WSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSApplication.swift; sourceTree = "<group>"; };
+		2D8F43FB20DED225004B3342 /* WSURLApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSURLApplication.swift; sourceTree = "<group>"; };
+		2D8F43FD20DED2E4004B3342 /* WSInstalledApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSInstalledApplication.swift; sourceTree = "<group>"; };
 		6076099E20DC425400B4DF8D /* Workspaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workspaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607609A120DC425400B4DF8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607609A320DC425400B4DF8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +199,9 @@
 		2D8F43AE20DEC9CE004B3342 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				2D8F43EF20DECC83004B3342 /* Provider */,
+				2D8F43EE20DECC7B004B3342 /* UseCases */,
+				2D8F43ED20DECC76004B3342 /* Entities */,
 				2D8F43AF20DEC9CE004B3342 /* Domain.h */,
 				2D8F43B020DEC9CE004B3342 /* Info.plist */,
 			);
@@ -218,6 +233,41 @@
 				2D8F43E120DEC9DC004B3342 /* Info.plist */,
 			);
 			path = CoreDataPlatformTests;
+			sourceTree = "<group>";
+		};
+		2D8F43ED20DECC76004B3342 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2D8F43F820DED1D7004B3342 /* WorkspaceApplication */,
+				2D8F43F020DECCB8004B3342 /* Workspace.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2D8F43EE20DECC7B004B3342 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2D8F43F420DECE26004B3342 /* WorkspaceUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2D8F43EF20DECC83004B3342 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				2D8F43F620DED16D004B3342 /* UseCaseProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		2D8F43F820DED1D7004B3342 /* WorkspaceApplication */ = {
+			isa = PBXGroup;
+			children = (
+				2D8F43F920DED1E8004B3342 /* WSApplication.swift */,
+				2D8F43FB20DED225004B3342 /* WSURLApplication.swift */,
+				2D8F43FD20DED2E4004B3342 /* WSInstalledApplication.swift */,
+			);
+			path = WorkspaceApplication;
 			sourceTree = "<group>";
 		};
 		6076099520DC425400B4DF8D = {
@@ -443,6 +493,7 @@
 				TargetAttributes = {
 					2D8F43AC20DEC9CE004B3342 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					2D8F43B420DEC9CE004B3342 = {
 						CreatedOnToolsVersion = 10.0;
@@ -551,6 +602,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8F43F120DECCB8004B3342 /* Workspace.swift in Sources */,
+				2D8F43FC20DED225004B3342 /* WSURLApplication.swift in Sources */,
+				2D8F43FA20DED1E8004B3342 /* WSApplication.swift in Sources */,
+				2D8F43FE20DED2E4004B3342 /* WSInstalledApplication.swift in Sources */,
+				2D8F43F720DED16D004B3342 /* UseCaseProvider.swift in Sources */,
+				2D8F43F520DECE26004B3342 /* WorkspaceUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +719,7 @@
 		2D8F43C420DEC9CE004B3342 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -684,6 +742,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.beygel.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -693,6 +752,7 @@
 		2D8F43C520DEC9CE004B3342 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -983,6 +1043,7 @@
 		607609C520DC425500B4DF8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Workspaces/Workspaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1002,6 +1063,7 @@
 		607609C620DC425500B4DF8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Workspaces/Workspaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
