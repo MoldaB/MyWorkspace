@@ -1,0 +1,16 @@
+PODS:
+  - QueryKit (0.13.0)
+
+DEPENDENCIES:
+  - QueryKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - QueryKit
+
+SPEC CHECKSUMS:
+  QueryKit: 406c42b9b4eb5f8dab380a9e5bd9ef656542d1f4
+
+PODFILE CHECKSUM: 1641fea44749f8d0e97a50c8d106503516944a64
+
+COCOAPODS: 1.5.3

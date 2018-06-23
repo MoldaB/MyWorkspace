@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UseCaseProvider
+public protocol UseCaseProvider
 {
     func provideWorkspaceUseCase() -> WorkspaceUseCase
 }

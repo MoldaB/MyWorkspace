@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Workspace
+public struct Workspace
 {
-    let name: String
-    let creationDate: Date
-    let applications: [String]
+    public let name: String
+    public let creationDate: Date
+    public let applications: [String]
     
-    init(name: String, creationDate: Date = Date(), applications: [String] = []) {
+    public init(name: String, creationDate: Date = Date(), applications: [String] = []) {
         self.name = name
         self.creationDate = creationDate
         self.applications = applications

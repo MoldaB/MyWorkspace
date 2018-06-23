@@ -8,21 +8,17 @@
 
 import Foundation
 
-protocol WorkspaceUseCase
+public protocol WorkspaceUseCase
 {
-    func getWorkspaceList() -> [Workspace]
-    func createWorkspace(with name: String, applications: [String]) -> Workspace
-    func replace(workspace: Workspace, for newWorkspace: Workspace) -> Bool
-    func delete(workspace: Workspace) -> Bool
+    func getWorkspaceList(_ completionHandler: @escaping WorkspaceUseCaseHandlers.List)
+    func createWorkspace(with name: String, applications: [String], completionHandler: @escaping WorkspaceUseCaseHandlers.Single)
+    func replace(workspace: Workspace, for newWorkspace: Workspace, completionHandler: @escaping WorkspaceUseCaseHandlers.SuccessError)
+    func delete(workspace: Workspace, completionHandler: @escaping WorkspaceUseCaseHandlers.SuccessError)
 }
 
-/*
- Use in CoreDataPlatform
- 
- struct Handlers
- {
- typealias successError = (Bool,Error) -> (Void)
- typealias list = () -> (Void)
- typealias single = () -> (Void)
- }
- */
+public struct WorkspaceUseCaseHandlers
+{
+    public typealias SuccessError = (Bool,Error?) -> Void
+    public typealias List = ([Workspace]) -> Void
+    public typealias Single = (Workspace) -> Void
+}
