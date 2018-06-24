@@ -1,6 +1,6 @@
 import Foundation
 import CoreData
-//import RxSwift
+import RxSwift
 
 final class FetchedResultsControllerEntityObserver<T: NSFetchRequestResult> : NSObject, NSFetchedResultsControllerDelegate {
 

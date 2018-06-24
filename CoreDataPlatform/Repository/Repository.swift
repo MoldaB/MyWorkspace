@@ -1,30 +1,29 @@
 import Foundation
 import CoreData
-//import RxSwift
+import RxSwift
 import QueryKit
 
 protocol AbstractRepository
 {
     associatedtype T
     func query(with predicate: NSPredicate?,
-               sortDescriptors: [NSSortDescriptor]?,
-               completionHandler: ([T]) -> ())
-    func save(entity: T, completionHandler: () -> ())
-    func delete(entity: T, completionHandler: () -> ())
+               sortDescriptors: [NSSortDescriptor]?) -> Observable<[T]>
+    func save(entity: T) -> Observable<Void>
+    func delete(entity: T) -> Observable<Void>
 }
 
 final class Repository<T: CoreDataRepresentable>: AbstractRepository where T == T.CoreDataType.DomainType
 {
-    
     private let context: NSManagedObjectContext
-//    private let scheduler: ContextScheduler
-
+    private let scheduler: ContextScheduler
+    
     init(context: NSManagedObjectContext) {
         self.context = context
-//        self.scheduler = ContextScheduler(context: context)
+        self.scheduler = ContextScheduler(context: context)
     }
     
-    func query(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, completionHandler: ([T]) -> ()) {
+    func query(with predicate: NSPredicate? = nil,
+               sortDescriptors: [NSSortDescriptor]? = nil) -> Observable<[T]> {
         let request = T.CoreDataType.fetchRequest()
         request.predicate = predicate
         request.sortDescriptors = sortDescriptors
@@ -33,14 +32,14 @@ final class Repository<T: CoreDataRepresentable>: AbstractRepository where T == 
             .subscribeOn(scheduler)
     }
     
-    func save(entity: T, completionHandler: () -> ()) {
+    func save(entity: T) -> Observable<Void> {
         return entity.sync(in: context)
             .mapToVoid()
             .flatMapLatest(context.rx.save)
             .subscribeOn(scheduler)
     }
     
-    func delete(entity: T, completionHandler: () -> ()) {
+    func delete(entity: T) -> Observable<Void> {
         return entity.sync(in: context)
             .map({$0 as! NSManagedObject})
             .flatMapLatest(context.rx.delete)

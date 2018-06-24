@@ -1,16 +1,20 @@
 PODS:
   - QueryKit (0.13.0)
+  - RxSwift (4.2.0)
 
 DEPENDENCIES:
   - QueryKit
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - QueryKit
+    - RxSwift
 
 SPEC CHECKSUMS:
   QueryKit: 406c42b9b4eb5f8dab380a9e5bd9ef656542d1f4
+  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: 1641fea44749f8d0e97a50c8d106503516944a64
+PODFILE CHECKSUM: 4f775e5f3c1e5d0de64626a2bc5fb3141fc673bc
 
 COCOAPODS: 1.5.3

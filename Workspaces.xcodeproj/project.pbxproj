@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		06C8A2EB2FE8D81AA5C08488 /* Pods_CoreDataPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D6EFE8FDAF2EB2983E8C8E /* Pods_CoreDataPlatform.framework */; };
 		26F62D6346F2AD40364A3E14 /* Pods_WorkspacesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4745C80B528A42E6A5EFDA /* Pods_WorkspacesTests.framework */; };
+		2D23275420DF056B0079C36A /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23275220DF056B0079C36A /* Persistable.swift */; };
+		2D23275520DF056B0079C36A /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23275320DF056B0079C36A /* DomainConvertibleType.swift */; };
+		2D23275620DF05D20079C36A /* FetchedResultsControllerEntityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F441E20DEE403004B3342 /* FetchedResultsControllerEntityObserver.swift */; };
+		2D23275720DF05D80079C36A /* NSManagedObjectContext+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F441D20DEE403004B3342 /* NSManagedObjectContext+Rx.swift */; };
+		2D23275820DF062B0079C36A /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F441520DEDD09004B3342 /* Observable+Ext.swift */; };
+		2D23275A20DF06860079C36A /* CDWorkspace+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23275920DF06860079C36A /* CDWorkspace+CoreDataClass.swift */; };
+		2D23276120DF5A3E0079C36A /* CDWorkspace+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23276020DF5A3E0079C36A /* CDWorkspace+Ext.swift */; };
+		2D23276420DF60E40079C36A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D23276220DF60E40079C36A /* Model.xcdatamodeld */; };
+		2D23276620DF62460079C36A /* CDWorkspace+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23276520DF62460079C36A /* CDWorkspace+Properties.swift */; };
 		2D8F43B620DEC9CE004B3342 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8F43AD20DEC9CE004B3342 /* Domain.framework */; };
 		2D8F43BD20DEC9CE004B3342 /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F43BC20DEC9CE004B3342 /* DomainTests.swift */; };
 		2D8F43BF20DEC9CE004B3342 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D8F43AF20DEC9CE004B3342 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -123,6 +132,12 @@
 		0D7E5F17B38AB0C2EA17BD2D /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		1DB58F169E3067C354F0AA44 /* Pods-CoreDataPlatformTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataPlatformTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataPlatformTests/Pods-CoreDataPlatformTests.release.xcconfig"; sourceTree = "<group>"; };
 		24DEC7CA8675EDEDF6B43A9E /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
+		2D23275220DF056B0079C36A /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		2D23275320DF056B0079C36A /* DomainConvertibleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
+		2D23275920DF06860079C36A /* CDWorkspace+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDWorkspace+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2D23276020DF5A3E0079C36A /* CDWorkspace+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDWorkspace+Ext.swift"; sourceTree = "<group>"; };
+		2D23276320DF60E40079C36A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		2D23276520DF62460079C36A /* CDWorkspace+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDWorkspace+Properties.swift"; sourceTree = "<group>"; };
 		2D8F43AD20DEC9CE004B3342 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8F43AF20DEC9CE004B3342 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		2D8F43B020DEC9CE004B3342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -246,6 +261,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D23275020DF05600079C36A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2D23275120DF056B0079C36A /* Convertion */,
+				2D23275920DF06860079C36A /* CDWorkspace+CoreDataClass.swift */,
+				2D23276520DF62460079C36A /* CDWorkspace+Properties.swift */,
+				2D23276020DF5A3E0079C36A /* CDWorkspace+Ext.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2D23275120DF056B0079C36A /* Convertion */ = {
+			isa = PBXGroup;
+			children = (
+				2D23275220DF056B0079C36A /* Persistable.swift */,
+				2D23275320DF056B0079C36A /* DomainConvertibleType.swift */,
+			);
+			path = Convertion;
+			sourceTree = "<group>";
+		};
 		2D8F43AE20DEC9CE004B3342 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +305,7 @@
 		2D8F43D120DEC9DC004B3342 /* CoreDataPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				2D23275020DF05600079C36A /* Entities */,
 				2D8F441C20DEE403004B3342 /* RxCoreData */,
 				2D8F440C20DEDD09004B3342 /* CoreDataStack */,
 				2D8F441320DEDD09004B3342 /* Extensions */,
@@ -277,6 +313,7 @@
 				2D8F441020DEDD09004B3342 /* UseCases */,
 				2D8F43D220DEC9DC004B3342 /* CoreDataPlatform.h */,
 				2D8F43D320DEC9DC004B3342 /* Info.plist */,
+				2D23276220DF60E40079C36A /* Model.xcdatamodeld */,
 			);
 			path = CoreDataPlatform;
 			sourceTree = "<group>";
@@ -514,6 +551,7 @@
 				2D8F43B120DEC9CE004B3342 /* Sources */,
 				2D8F43B220DEC9CE004B3342 /* Frameworks */,
 				2D8F43B320DEC9CE004B3342 /* Resources */,
+				0CB79FC6577A7A0254491E17 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -769,10 +807,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Workspaces/Pods-Workspaces-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/QueryKit/QueryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QueryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -795,6 +835,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0CB79FC6577A7A0254491E17 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DomainTests/Pods-DomainTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/QueryKit/QueryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QueryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DomainTests/Pods-DomainTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		22D0288130D24487A1BAF7C6 /* [CP] Check Pods Manifest.lock */ = {
@@ -823,10 +883,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataPlatformTests/Pods-CoreDataPlatformTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/QueryKit/QueryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QueryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -935,10 +997,19 @@
 			files = (
 				2D8F441920DEDD09004B3342 /* UseCaseProvider.swift in Sources */,
 				2D8F441820DEDD09004B3342 /* WorkspaceUseCase.swift in Sources */,
+				2D23275420DF056B0079C36A /* Persistable.swift in Sources */,
+				2D23276420DF60E40079C36A /* Model.xcdatamodeld in Sources */,
 				2D8F441620DEDD09004B3342 /* CoreDataStack.swift in Sources */,
+				2D23276620DF62460079C36A /* CDWorkspace+Properties.swift in Sources */,
+				2D23275620DF05D20079C36A /* FetchedResultsControllerEntityObserver.swift in Sources */,
 				2D8F441720DEDD09004B3342 /* Repository.swift in Sources */,
+				2D23275520DF056B0079C36A /* DomainConvertibleType.swift in Sources */,
 				2D8F442220DEE403004B3342 /* ContextScheduler.swift in Sources */,
+				2D23275820DF062B0079C36A /* Observable+Ext.swift in Sources */,
+				2D23276120DF5A3E0079C36A /* CDWorkspace+Ext.swift in Sources */,
+				2D23275A20DF06860079C36A /* CDWorkspace+CoreDataClass.swift in Sources */,
 				2D8F441A20DEDD09004B3342 /* NSManagedObjectContext+Ext.swift in Sources */,
+				2D23275720DF05D80079C36A /* NSManagedObjectContext+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1568,6 +1639,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2D23276220DF60E40079C36A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2D23276320DF60E40079C36A /* Model.xcdatamodel */,
+			);
+			currentVersion = 2D23276320DF60E40079C36A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6076099620DC425400B4DF8D /* Project object */;
 }

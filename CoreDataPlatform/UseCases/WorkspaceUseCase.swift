@@ -1,5 +1,6 @@
 import Foundation
 import Domain
+import RxSwift
 
 final class WorkspaceUseCase<Repository>: Domain.WorkspaceUseCase where Repository: AbstractRepository, Repository.T == Workspace
 {    
@@ -10,32 +11,27 @@ final class WorkspaceUseCase<Repository>: Domain.WorkspaceUseCase where Reposito
     }
 
     
-    func getWorkspaceList(_ completionHandler: ([Workspace]) -> Void) {
-        repository.query(with: nil,
-                         sortDescriptors: [], //Workspace.CoreDataType.usedAt.descending()
-            completionHandler: completionHandler)
+    func getWorkspaceList() -> Observable<[Workspace]> {
+        return repository.query(
+            with: nil,
+            sortDescriptors: [Workspace.CoreDataType.lastUseDate.descending()]
+        )
     }
     
-    func createWorkspace(with name: String, applications: [String], completionHandler: @escaping (Workspace) -> Void) {
+    func createWorkspace(with name: String, applications: [String]) -> Observable<Workspace> {
         let newWorkspace = Workspace(name: name,
-                                     creationDate: Date(),
+                                     lastUseDate: Date(),
                                      applications: applications)
-        repository.save(entity: newWorkspace) { [newWorkspace, completionHandler] in
-            completionHandler(newWorkspace)
-        }
+        return repository.save(entity: newWorkspace).map { newWorkspace }
     }
     
-    func replace(workspace: Workspace, for newWorkspace: Workspace, completionHandler: @escaping (Bool, Error?) -> Void) {
-        repository.delete(entity: workspace) { [repository, newWorkspace, completionHandler] in
-            repository.save(entity: newWorkspace) { [completionHandler] in
-                completionHandler(true,nil)
-            }
-        }
+    func replace(workspace: Workspace, for newWorkspace: Workspace) -> Observable<Void> {
+        let deletion = repository.delete(entity: workspace)
+        let addition = repository.save(entity: newWorkspace)
+        return Observable.zip(deletion,addition).mapToVoid()
     }
     
-    func delete(workspace: Workspace, completionHandler: @escaping (Bool, Error?) -> Void) {
-        repository.delete(entity: workspace) { [completionHandler] in
-            completionHandler(true,nil)
-        }
+    func delete(workspace: Workspace) -> Observable<Void>  {
+        return repository.delete(entity: workspace)
     }
 }

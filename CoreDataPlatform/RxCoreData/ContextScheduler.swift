@@ -1,21 +1,25 @@
 import Foundation
 import CoreData
-//import RxSwift
+import RxSwift
 
-final class ContextScheduler
-{
+final class ContextScheduler: ImmediateSchedulerType {
     private let context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext) {
         self.context = context
     }
     
-    func schedule<StateType>(_ state: StateType, action: @escaping (StateType) -> ()) -> () -> () {
+    func schedule<StateType>(_ state: StateType, action: @escaping (StateType) -> Disposable) -> Disposable {
         
-        return {
-            self.context.perform {
-                action(state)
+        let disposable = SingleAssignmentDisposable()
+        
+        context.perform {
+            if disposable.isDisposed {
+                return
             }
+            disposable.setDisposable(action(state))
         }
+        
+        return disposable
     }
 }

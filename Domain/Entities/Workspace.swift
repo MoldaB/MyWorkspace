@@ -11,12 +11,19 @@ import Foundation
 public struct Workspace
 {
     public let name: String
-    public let creationDate: Date
+    public let lastUseDate: Date
     public let applications: [String]
     
-    public init(name: String, creationDate: Date = Date(), applications: [String] = []) {
+    public init(name: String, lastUseDate: Date = Date(), applications: [String] = []) {
         self.name = name
-        self.creationDate = creationDate
+        self.lastUseDate = lastUseDate
         self.applications = applications
+    }
+}
+
+extension Workspace: Equatable
+{
+    public static func == (lhs: Workspace, rhs: Workspace) -> Bool {
+        return lhs.name == rhs.name
     }
 }

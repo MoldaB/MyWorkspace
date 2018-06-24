@@ -1,9 +1,9 @@
 import Foundation
 import CoreData
-//import RxSwift
-//import QueryKit
+import RxSwift
+import QueryKit
 
-extension NSManagedObjectContext {
+extension Reactive where Base: NSManagedObjectContext {
     
     /**
      Executes a fetch request and returns the fetched objects as an `Observable` array of `NSManagedObjects`.
@@ -13,8 +13,8 @@ extension NSManagedObjectContext {
      - returns: An `Observable` array of `NSManagedObjects` objects that can be bound to a table view.
      */
     func entities<T: NSFetchRequestResult>(fetchRequest: NSFetchRequest<T>,
-                  sectionNameKeyPath: String? = nil,
-                  cacheName: String? = nil) -> Observable<[T]> {
+                                           sectionNameKeyPath: String? = nil,
+                                           cacheName: String? = nil) -> Observable<[T]> {
         return Observable.create { observer in
             
             let observerAdapter = FetchedResultsControllerEntityObserver(observer: observer, fetchRequest: fetchRequest, managedObjectContext: self.base, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
@@ -29,24 +29,24 @@ extension NSManagedObjectContext {
         return Observable.create { observer in
             do {
                 try self.base.save()
-                observer.onNext()
+                observer.onNext(())
             } catch {
                 observer.onError(error)
             }
             return Disposables.create()
         }
     }
-
+    
     func delete<T: NSManagedObject>(entity: T) -> Observable<Void> {
         return Observable.create { observer in
             self.base.delete(entity)
-            observer.onNext()
+            observer.onNext(())
             return Disposables.create()
-        }.flatMapLatest {
-            self.save()
+            }.flatMapLatest {
+                self.save()
         }
     }
-
+    
     func first<T: NSFetchRequestResult>(ofType: T.Type = T.self, with predicate: NSPredicate) -> Observable<T?> {
         return Observable.deferred {
             let entityName = String(describing: T.self)
@@ -61,15 +61,15 @@ extension NSManagedObjectContext {
         }
     }
     
-    func sync<C: CoreDataRepresentable, P: Persistable>(entity: C,
-                update: @escaping (P) -> Void) -> Observable<P> where C.CoreDataType == P {
+    func sync<C: CoreDataRepresentable, P>(entity: C,
+                                                        update: @escaping (P) -> Void) -> Observable<P> where C.CoreDataType == P {
         let predicate: NSPredicate = P.primaryAttribute == entity.uid
         return first(ofType: P.self, with: predicate)
             .flatMap { obj -> Observable<P> in
                 let object = obj ?? self.base.create()
                 update(object)
                 return Observable.just(object)
-            }
+        }
     }
 }
 

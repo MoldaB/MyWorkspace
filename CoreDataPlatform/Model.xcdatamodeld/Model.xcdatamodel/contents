@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14270.9" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="CDWorkspace" representedClassName=".CDWorkspace" syncable="YES">
+        <attribute name="applications" attributeType="Transformable" syncable="YES"/>
+        <attribute name="lastUseDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CDWorkspace" positionX="-63" positionY="-18" width="128" height="90"/>
+    </elements>
 </model>

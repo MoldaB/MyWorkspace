@@ -7,18 +7,12 @@
 //
 
 import Foundation
+import RxSwift
 
 public protocol WorkspaceUseCase
 {
-    func getWorkspaceList(_ completionHandler: @escaping WorkspaceUseCaseHandlers.List)
-    func createWorkspace(with name: String, applications: [String], completionHandler: @escaping WorkspaceUseCaseHandlers.Single)
-    func replace(workspace: Workspace, for newWorkspace: Workspace, completionHandler: @escaping WorkspaceUseCaseHandlers.SuccessError)
-    func delete(workspace: Workspace, completionHandler: @escaping WorkspaceUseCaseHandlers.SuccessError)
-}
-
-public struct WorkspaceUseCaseHandlers
-{
-    public typealias SuccessError = (Bool,Error?) -> Void
-    public typealias List = ([Workspace]) -> Void
-    public typealias Single = (Workspace) -> Void
+    func getWorkspaceList() -> Observable<[Workspace]>
+    func createWorkspace(with name: String, applications: [String]) -> Observable<Workspace>
+    func replace(workspace: Workspace, for newWorkspace: Workspace) -> Observable<Void>
+    func delete(workspace: Workspace) -> Observable<Void>
 }
